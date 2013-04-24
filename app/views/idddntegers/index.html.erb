@@ -1,0 +1,23 @@
+<h1>Listing idddntegers</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @idddntegers.each do |idddnteger| %>
+  <tr>
+    <td><%= idddnteger.number %></td>
+    <td><%= link_to 'Show', idddnteger %></td>
+    <td><%= link_to 'Edit', edit_idddnteger_path(idddnteger) %></td>
+    <td><%= link_to 'Destroy', idddnteger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Idddnteger', new_idddnteger_path %>

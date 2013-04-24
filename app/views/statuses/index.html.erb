@@ -1,0 +1,34 @@
+<center><h1>Shared Posts</h1><br /> 
+  <% if user_signed_in? %>
+  <h1><%= link_to current_user.full_name, root_path %></h1>
+  <%= link_to current_user.email, root_path %>
+  <br />
+  
+  
+  <% end -%>
+<center>
+<div>
+		<% if user_signed_in? %>
+<li><button class="btn btn-primary" type="button"><%= link_to "New Share", new_status_path %></button></li><br />
+<% else %>
+<li>.</li>
+</div>
+
+<table>
+  
+
+<% @statuses.each do |status| %>
+  
+  <tr>
+    <td><%= status.content %></td>
+<br /></tr></table>
+<%= link_to time_ago_in_words(status.created_at) + " ago", status %>|
+<%= link_to 'Edit', edit_status_path(status) %>|
+<%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br /><br />
+<hr color="grey" width="100%" height="10">
+<% end %>
+<br />
+<br />
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Sharing</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+		
+			<div class="container">
+				<%= link_to "Online Sharing", root_path, class: 'brand' %>
+				<ul class="nav">
+					<li><%= link_to "Shared Posts", root_path %></li>
+				</ul>
+				<ul class="nav pull-right">
+					<% if user_signed_in? %>
+						
+						<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+						<li><%= link_to "Sign out", logout_path %></li>
+						
+					<% else %>
+					<li><%= link_to "Register", register_path %></li>
+					<li><%= link_to "Sign In", login_path %></li>
+					
+					
+
+
+						 
+			    </ul>
+			    
+		
+		</div>
+	</div>
+
+
+
+
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+<% end %>	
+
+<%= yield %>
+
+</body>
+</html>

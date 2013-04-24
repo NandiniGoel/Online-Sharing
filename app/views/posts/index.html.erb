@@ -1,0 +1,30 @@
+<center><h1>Shared Posts</h1><br /> 
+  <% if user_signed_in? %>
+  <h1><%= link_to current_user.full_name, root_path %></h1>
+  <%= link_to current_user.email, root_path %>
+  <br />
+  
+  
+  <% end -%>
+<center>
+<button class="btn btn-primary" type="button"><%= link_to "New Share", new_post_path %></button><br />
+
+
+<table>
+  
+
+<% @posts.each do |post| %>
+  <strong><%= post.user.full_name %> </strong><br />
+  <tr>
+    <td><%= post.Content %></td>
+<br /></tr></table>
+<%= link_to time_ago_in_words(post.created_at) + " ago", post %>|
+<%= link_to 'Edit', edit_post_path(post) %>|
+<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br /><br />
+<hr color="grey" width="100%" height="10">
+<% end %>
+<br />
+<br />
+
+

@@ -1,0 +1,11 @@
+<%= simple_form_for(@upload) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :Image, :value => 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/c178.0.604.604/s160x160/600249_1002029915098_1903163647_n.jpg' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
